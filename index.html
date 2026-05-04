@@ -1,22 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <style>
-    body, html { margin: 0; padding: 0; height: 100vh; width: 100vw; background: #222; }
-    canvas { width: 100%; height: 100%; display: block; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rive Portfolio Embed</title>
+    <style>
+        /* Makes the animation fill the entire browser window */
+        body, html { margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; background-color: #222; }
+        canvas { width: 100%; height: 100%; display: block; }
+    </style>
 </head>
 <body>
-  <canvas id="canvas"></canvas>
-  <script src="https://unpkg.com"></script>
-  <script>
-    const r = new rive.Rive({
-      src: 'som-project01.riv', // Double-check this matches your file exactly!
-      canvas: document.getElementById('canvas'),
-      autoplay: true,
-      onLoad: () => { r.resizeToCanvas(); },
-      onLoadError: () => { console.error('Rive failed to load'); }
-    });
-  </script>
+    <canvas id="canvas"></canvas>
+
+    <!-- Load the Rive Runtime -->
+    <script src="https://unpkg.com"></script>
+
+    <script>
+        const r = new rive.Rive({
+            src: 'som-project01.riv', // Matches your uploaded filename
+            canvas: document.getElementById('canvas'),
+            autoplay: true,
+            stateMachines: 'State Machine 1', // Default Rive state machine name
+            onLoad: () => {
+                r.resizeToCanvas();
+                console.log('Rive file loaded successfully');
+            },
+            onLoadError: () => {
+                console.error('Rive failed to load. Check if the filename is exactly som-project01.riv');
+            }
+        });
+    </script>
 </body>
 </html>
