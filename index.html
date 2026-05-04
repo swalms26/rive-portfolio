@@ -1,33 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <style>
-        body, html { margin: 0; padding: 0; height: 100vh; width: 100vw; overflow: hidden; background-color: #222; }
-        canvas { width: 100%; height: 100%; display: block; }
-    </style>
+  <style>
+    body, html { margin: 0; padding: 0; height: 100vh; width: 100vw; overflow: hidden; background-color: #222; }
+    canvas { width: 100%; height: 100%; display: block; }
+  </style>
 </head>
 <body>
-    <canvas id="canvas"></canvas>
-    <!-- We use the standard runtime for best compatibility -->
-    <script src="https://unpkg.com"></script>
-    <script>
-        const r = new rive.Rive({
-            // Using the full URL ensures the browser finds it correctly
-            src: "https://github.io",
-            canvas: document.getElementById('canvas'),
-            autoplay: true,
-            stateMachines: "State Machine 1",
-            layout: new rive.Layout({
-                fit: rive.Fit.Contain,
-                alignment: rive.Alignment.Center
-            }),
-            onLoad: () => {
-                r.resizeToCanvas();
-            },
-            onLoadError: () => {
-                console.error("Rive failed to load.");
-            }
-        });
-    </script>
+  <canvas id="canvas"></canvas>
+  <script src="https://unpkg.com"></script>
+  <script>
+    const r = new rive.Rive({
+      // We are forcing the player to look at the exact file URL
+      src: "https://githubusercontent.com",
+      canvas: document.getElementById('canvas'),
+      autoplay: true,
+      stateMachines: "State Machine 1",
+      onLoad: () => { r.resizeToCanvas(); }
+    });
+  </script>
 </body>
 </html>
