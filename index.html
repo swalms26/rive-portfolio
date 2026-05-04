@@ -8,20 +8,24 @@
 </head>
 <body>
     <canvas id="canvas"></canvas>
-    <!-- We are using the layout-lite version for better compatibility -->
+    <!-- We use the standard runtime for best compatibility -->
     <script src="https://unpkg.com"></script>
     <script>
         const r = new rive.Rive({
-            src: './som-project01.riv', // The './' helps GitHub find the file in the same folder
+            // Using the full URL ensures the browser finds it correctly
+            src: "https://github.io",
             canvas: document.getElementById('canvas'),
             autoplay: true,
-            stateMachines: 'State Machine 1',
+            stateMachines: "State Machine 1",
             layout: new rive.Layout({
                 fit: rive.Fit.Contain,
                 alignment: rive.Alignment.Center
             }),
             onLoad: () => {
                 r.resizeToCanvas();
+            },
+            onLoadError: () => {
+                console.error("Rive failed to load.");
             }
         });
     </script>
