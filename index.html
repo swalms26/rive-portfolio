@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* This makes the animation fill the whole screen */
+    body, html { margin: 0; padding: 0; overflow: hidden; height: 100%; width: 100%; background-color: transparent; }
+    canvas { width: 100%; height: 100%; display: block; }
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <script src="https://unpkg.com"></script>
+  <script>
+    const r = new rive.Rive({
+        src: 'som-project01.riv', 
+        canvas: document.getElementById('canvas'),
+        autoplay: true,
+        onLoad: () => {
+          r.resizeToCanvas();
+        },
+    });
+  </script>
+</body>
+</html>
